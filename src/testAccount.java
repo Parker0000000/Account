@@ -10,12 +10,27 @@ public class testAccount {
         Date datecreated;
         double newintrest;
         double newbalance;
+        double withdraw = 0;
+        int wod;
+        double deposit = 0;
 
-        System.out.println("Hello, World!");
-        newID = input.nextInt();
-        newbalance = input.nextDouble();
+        System.out.println("Enter the annual intrest");
         newintrest = input.nextDouble();
-        Account bank = new Account(newID, newbalance, newintrest);
-        System.out.println(bank.getmonthlyintrestrate());
+        System.out.println("Enter the account id");
+        newID = input.nextInt();
+        System.out.println("Enter the ballance");
+        newbalance = input.nextDouble();
+        System.out.println("Do you want to 1 withdraw or 2 deposit");
+        wod = input.nextInt();
+        if (wod == 1) {
+            System.out.println("Enter ammount to be withdrawn from account " + newID);
+            withdraw = input.nextDouble();
+        }
+        else {
+            System.out.println("Enter ammount to deposit on account " + newID);
+            deposit = input.nextDouble();
+        }
+        Account bank = new Account(newID, newbalance, newintrest, withdraw, deposit);
+        System.out.println(bank.Ammount());
     }
 }

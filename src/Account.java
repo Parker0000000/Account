@@ -1,12 +1,13 @@
-import java.sql.Date;
+
 
 public class Account {
     private int ID;
     private double balance;
     private double annualinterestrate;
-    private Date datecreated;
-    double monthlyintrestrate = annualinterestrate / 12;
-    double days;
+    private double datecreated;
+    double days = datecreated;
+    double newamount;
+    double newasdf;
 
     Account() {
         ID = 0;
@@ -14,10 +15,12 @@ public class Account {
         annualinterestrate = 0;
     }
 
-    Account(int newID, double newbalance, double newintrest) {
+    Account(int newID, double newbalance, double newintrest, double withdraw, double deposit) {
         ID = newID;
         balance = newbalance;
         annualinterestrate = newintrest;
+        newamount = withdraw;
+        newasdf = deposit;
     }
 
     int ID() {
@@ -27,6 +30,15 @@ public class Account {
         return annualinterestrate / 12; 
     }
     double monthlyintrest() {
-        return balance * (days * monthlyintrestrate);
+        return balance * (days * getmonthlyintrestrate());
+    }
+    double Withdraw() {
+        return balance - newamount;
+    }
+    double Deposit() {
+        return balance + newasdf;
+    }
+    double Ammount() {
+        return balance;
     }
 }
